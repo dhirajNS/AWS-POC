@@ -1,5 +1,6 @@
 package com.javatechie.aws.lambda;
 
+import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.javatechie.aws.lambda.domain.Order;
 import com.javatechie.aws.lambda.respository.OrderDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,8 @@ public class SpringbootAwsLambdaApplication {
     }
 
     @Bean
-    public Function<String, List<Order>> findOrderByName() {
-        return (input) -> orderDao.buildOrders().stream().filter(order -> order.getName().equals(input)).collect(Collectors.toList());
+    public Function<APIGatewayProxyRequestEvent, List<Order>> findOrderByName() {
+        return (requestEvent) -> orderDao.buildOrders().stream().filter(order -> order.getName().equals(requestEvent.getQueryStringParameters().get("orderName"))).collect(Collectors.toList());
     }
 
 
