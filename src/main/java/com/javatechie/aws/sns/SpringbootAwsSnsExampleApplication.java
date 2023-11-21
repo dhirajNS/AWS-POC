@@ -20,7 +20,7 @@ public class SpringbootAwsSnsExampleApplication {
     @Autowired
     private AmazonSNSClient snsClient;
 
-    String TOPIC_ARN="" ;
+    String TOPIC_ARN="arn:aws:sns:us-east-1:673214335685:emailOutage" ;
 
 	@GetMapping("/addSubscription/{email}")
 	public String addSubscription(@PathVariable String email) {

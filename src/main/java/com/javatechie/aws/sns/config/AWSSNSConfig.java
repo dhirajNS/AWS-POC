@@ -13,13 +13,13 @@ import org.springframework.context.annotation.Primary;
 public class AWSSNSConfig {
 
 
-    public static final String SECRET_KEY = "";
-    public static final String ACCESS_KEY = "";
+    public static final String SECRET_KEY = "abc";
+    public static final String ACCESS_KEY = "abc";
 
     @Primary
     @Bean
     public AmazonSNSClient getSnsClient() {
-        return (AmazonSNSClient) AmazonSNSClientBuilder.standard().withRegion(Regions.AP_SOUTH_1)
+        return (AmazonSNSClient) AmazonSNSClientBuilder.standard().withRegion(Regions.US_EAST_1)
                 .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(ACCESS_KEY,
                         SECRET_KEY)))
                 .build();
