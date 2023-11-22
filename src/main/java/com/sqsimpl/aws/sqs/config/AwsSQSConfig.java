@@ -1,4 +1,4 @@
-package com.javatechie.aws.sqs.config;
+package com.sqsimpl.aws.sqs.config;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -31,7 +31,7 @@ public class AwsSQSConfig {
     @Primary
     @Bean
     public AmazonSQSAsync amazonSQSAsync() {
-        return AmazonSQSAsyncClientBuilder.standard().withRegion(Regions.AP_SOUTH_1)
+        return AmazonSQSAsyncClientBuilder.standard().withRegion(region)
                 .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(awsAccessKey, awsSecretKey)))
                 .build();
     }

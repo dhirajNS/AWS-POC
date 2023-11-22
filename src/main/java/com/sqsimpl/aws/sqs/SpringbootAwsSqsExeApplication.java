@@ -1,4 +1,4 @@
-package com.javatechie.aws.sqs;
+package com.sqsimpl.aws.sqs;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SpringbootAwsSqsExeApplication {
 
-
     Logger logger= LoggerFactory.getLogger(SpringbootAwsSqsExeApplication.class);
 
     @Autowired
@@ -32,8 +31,11 @@ public class SpringbootAwsSqsExeApplication {
         queueMessagingTemplate.send(endpoint, MessageBuilder.withPayload(message).build());
     }
 
-    @SqsListener("javatechie-queue")
-    public void loadMessageFromSQS(String message)  {
+    @SqsListener("sqsTestingQueue")
+    public void loadMessageFromSQS(String message) throws InterruptedException {
+        //Thread t=new Thread();
+        //t.sleep(60*1000);//purposely delaying by 60 secs since vivility
+        //timeout is set to 30secs,it will consume for 30 secs then again put to queue for other consumers ,this iw wrong .
         logger.info("message from SQS Queue {}",message);
     }
 
