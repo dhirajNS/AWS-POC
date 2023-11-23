@@ -1,7 +1,7 @@
-package com.javatechiue.aws;
+package com.dynamodbdemo.aws;
 
-import com.javatechiue.aws.entity.Person;
-import com.javatechiue.aws.repository.PersonRepository;
+import com.dynamodbdemo.aws.entity.Person;
+import com.dynamodbdemo.aws.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

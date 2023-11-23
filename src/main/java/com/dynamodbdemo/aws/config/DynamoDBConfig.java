@@ -1,4 +1,4 @@
-package com.javatechiue.aws.config;
+package com.dynamodbdemo.aws.config;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -12,10 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DynamoDBConfig {
 
-    public static final String SERVICE_ENDPOINT = "";
-    public static final String REGION = "";
-    public static final String ACCESS_KEY = "";
-    public static final String SECRET_KEY = "";
+
 
     @Bean
     public DynamoDBMapper mapper() {
