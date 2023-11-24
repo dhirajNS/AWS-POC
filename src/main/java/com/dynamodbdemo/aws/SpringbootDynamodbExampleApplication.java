@@ -35,6 +35,11 @@ public class SpringbootDynamodbExampleApplication {
         return repository.editPerson(person);
     }
 
+    @GetMapping("/welcome/{name}")
+    public String welcome(@PathVariable String name) {
+        return "Welcome to home page "+name+" Have a good day!!";
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(SpringbootDynamodbExampleApplication.class, args);
     }
